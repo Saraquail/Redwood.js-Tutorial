@@ -14,11 +14,13 @@ import TutorialLayout from './layouts/TutorialLayout/TutorialLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/contact" page={ContactPage} name="contact" />
       <Set wrap={BlogPostsLayout}>
         <Route path="/blog-posts/new" page={BlogPostNewBlogPostPage} name="newBlogPost" />
         <Route path="/blog-posts/{id:Int}/edit" page={BlogPostEditBlogPostPage} name="editBlogPost" />
         <Route path="/blog-posts/{id:Int}" page={BlogPostBlogPostPage} name="blogPost" />
         <Route path="/blog-posts" page={BlogPostBlogPostsPage} name="blogPosts" />
+        <Route path="/contact" page={ContactPage} name="contact" />
       </Set>
       <Set wrap={TutorialLayout}>
         <Route path="/article/{id:Int}" page={ArticlePage} name="article" />
