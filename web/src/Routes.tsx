@@ -7,24 +7,29 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Router, Route, Set } from '@redwoodjs/router'
+import { Private, Router, Route, Set } from '@redwoodjs/router'
 import BlogPostsLayout from 'src/layouts/BlogPostsLayout'
 import TutorialLayout from './layouts/TutorialLayout/TutorialLayout'
 
 const Routes = () => {
   return (
     <Router>
-      <Route path="/contact" page={ContactPage} name="contact" />
-      <Set wrap={BlogPostsLayout}>
-        <Route path="/blog-posts/new" page={BlogPostNewBlogPostPage} name="newBlogPost" />
-        <Route path="/blog-posts/{id:Int}/edit" page={BlogPostEditBlogPostPage} name="editBlogPost" />
-        <Route path="/blog-posts/{id:Int}" page={BlogPostBlogPostPage} name="blogPost" />
-        <Route path="/blog-posts" page={BlogPostBlogPostsPage} name="blogPosts" />
-        <Route path="/contact" page={ContactPage} name="contact" />
-      </Set>
+      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
+      <Private unauthenticated="home">
+        <Set wrap={BlogPostsLayout}>
+          <Route path="/admin/blog-posts/new" page={BlogPostNewBlogPostPage} name="newBlogPost" />
+          <Route path="/admin/blog-posts/{id:Int}/edit" page={BlogPostEditBlogPostPage} name="editBlogPost" />
+          <Route path="/admin/blog-posts/{id:Int}" page={BlogPostBlogPostPage} name="blogPost" />
+          <Route path="/admin/blog-posts" page={BlogPostBlogPostsPage} name="blogPosts" />
+        </Set>
+      </Private>
       <Set wrap={TutorialLayout}>
         <Route path="/article/{id:Int}" page={ArticlePage} name="article" />
         <Route path="/about" page={AboutPage} name="about" />
+        <Route path="/contact" page={ContactPage} name="contact" />
         <Route path="/" page={HomePage} name="home" />
       </Set>
       <Route notfound page={NotFoundPage} />
