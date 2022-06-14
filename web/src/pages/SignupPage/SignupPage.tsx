@@ -61,7 +61,7 @@ const SignupPage = () => {
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Username
+                    Email
                   </Label>
                   <TextField
                     name="username"
@@ -71,12 +71,52 @@ const SignupPage = () => {
                     validation={{
                       required: {
                         value: true,
-                        message: 'Username is required',
+                        message: 'Email is required',
                       },
                     }}
                   />
                   <FieldError name="username" className="rw-field-error" />
+                  <Label
+                    name="firstName"
+                    className="rw-label"
+                    errorClassName="rw-label rw-label-error"
+                  >
+                    First Name
+                  </Label>
+                  <TextField
+                    name="firstName"
+                    className="rw-input"
+                    errorClassName="rw-input rw-input-error"
+                    validation={{
+                      required: {
+                        value: true,
+                        message: 'First Name is required',
+                      },
+                    }}
+                  />
 
+                  <FieldError name="lastName" className="rw-field-error" />
+
+                  <Label
+                    name="lastName"
+                    className="rw-label"
+                    errorClassName="rw-label rw-label-error"
+                  >
+                    Last Name
+                  </Label>
+                  <TextField
+                    name="lastName"
+                    className="rw-input"
+                    errorClassName="rw-input rw-input-error"
+                    validation={{
+                      required: {
+                        value: true,
+                        message: 'Last Name is required',
+                      },
+                    }}
+                  />
+
+                  <FieldError name="lastName" className="rw-field-error" />
                   <Label
                     name="password"
                     className="rw-label"
@@ -99,7 +139,9 @@ const SignupPage = () => {
                   <FieldError name="password" className="rw-field-error" />
 
                   <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">Sign Up</Submit>
+                    <Submit className="rw-button rw-button-blue">
+                      Sign Up
+                    </Submit>
                   </div>
                 </Form>
               </div>
